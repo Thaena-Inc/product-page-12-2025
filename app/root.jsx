@@ -1,4 +1,5 @@
 import {Analytics, getShopAnalytics, useNonce} from '@shopify/hydrogen';
+import {CartProvider} from '@shopify/hydrogen-react';
 import {
   Outlet,
   useRouteError,
@@ -180,9 +181,11 @@ export default function App() {
       shop={data.shop}
       consent={data.consent}
     >
-      <PageLayout {...data}>
-        <Outlet />
-      </PageLayout>
+      <CartProvider cart={data.cart}>
+        <PageLayout {...data}>
+          <Outlet />
+        </PageLayout>
+      </CartProvider>
     </Analytics.Provider>
   );
 }

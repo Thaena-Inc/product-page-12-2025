@@ -9,14 +9,14 @@ module.exports = {
       extend: {
         colors: {
           // Core neutrals
-          "neutral-light": "#FFFFFF",
-          "neutral-warm": "#F9F5F1",    // warm panels / backgrounds
+          "neutral-light": "#f7f3ec",
+          "neutral-warm": "#ede8de",    // warm panels / backgrounds
   
           // Main text
-          "slate-dark": "#44414E",      // body text
+          "slate-dark": "#43414f",      // body text
   
           // Greens / teals
-          "teal-green": "#1C5E54",      // hero H1, CTAs
+          "teal-green": "#275b52",      // hero H1, CTAs
           "teal-dark": "#275B52",       // icons, borders, accents
           sage: "#A8B3A8",              // dividers, badges
           "sage-grey": "#A8B3A8",       // for text-sage-grey / border-sage-grey

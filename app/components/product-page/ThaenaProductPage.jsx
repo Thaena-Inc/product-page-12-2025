@@ -6,6 +6,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '../ui/accordion';
+import {AddToCartButton} from '~/components/AddToCartButton';
+
+const VARIANT_ID_30 = "gid://shopify/ProductVariant/42146515615939";
+const VARIANT_ID_90 = "gid://shopify/ProductVariant/42146515648707";
 
 export default function Index() {
   const [selectedSize, setSelectedSize] = useState('30');
@@ -150,9 +154,16 @@ export default function Index() {
                     </div>
 
                     <div className="space-y-3 pt-6">
-                      <button className="w-full h-14 flex items-center justify-center rounded-xl border-2 border-teal-green bg-teal-green">
+                    <AddToCartButton
+                      lines={[
+                        {
+                          merchandiseId: VARIANT_ID_30,
+                          quantity,   // ← uses your existing state
+                        },
+                      ]}
+                      className="w-full h-14 flex items-center justify-center rounded-xl border-2 border-teal-green bg-teal-green">
                         <span className="font-roboto-mono text-base font-medium leading-6 text-neutral-light">Add To Cart</span>
-                      </button>
+                      </AddToCartButton>
                       <button className="w-full h-10 flex items-center justify-center rounded-xl">
                         <span className="font-roboto text-xs font-medium leading-4 text-earth-brown">Subscribe & Save 5%</span>
                       </button>
@@ -205,9 +216,16 @@ export default function Index() {
                     </div>
 
                     <div className="space-y-3 pt-6">
-                      <button className="w-full h-14 flex items-center justify-center rounded-xl border-2 border-rust-dark bg-transparent">
+                    <AddToCartButton
+                      lines={[
+                        {
+                          merchandiseId: VARIANT_ID_90,
+                          quantity,   // ← uses your existing state
+                        },
+                      ]}
+                      className="w-full h-14 flex items-center justify-center rounded-xl border-2 border-rust-dark bg-transparent">
                         <span className="font-roboto-mono text-base font-medium leading-6 text-slate-dark">Add To Cart</span>
-                      </button>
+                      </AddToCartButton>
                       <button className="w-full h-10 flex items-center justify-center rounded-xl">
                         <span className="font-roboto text-xs font-medium leading-4 text-[#6B4F2E]">Subscribe & Save 5%</span>
                       </button>
