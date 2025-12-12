@@ -23,6 +23,10 @@ export default function TrackYourJourney() {
             src="https://api.builder.io/api/v1/image/assets/TEMP/5de8fe995069f8afc14440c29b3e088a977d176b?width=768"
             alt="CHLOE app progress tracking interface showing daily wellness metrics"
             className="w-full max-w-[384px] h-auto rounded-2xl shadow-2xl"
+            onError={(e) => {
+              e.target.style.display = 'none';
+              console.error('Image failed to load. Please update the image URL in TrackYourJourney.jsx');
+            }}
           />
         </div>
 

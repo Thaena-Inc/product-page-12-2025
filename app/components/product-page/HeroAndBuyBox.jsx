@@ -1,9 +1,26 @@
 import { useState } from "react";
 import { Minus, Plus, Check } from "lucide-react";
+import {Image} from '@shopify/hydrogen';
+import {AddToCartButton} from '~/components/AddToCartButton';
+import {useAside} from '~/components/Aside';
 
-export default function HeroAndBuyBox() {
+const VARIANT_ID_30 = "gid://shopify/ProductVariant/42146515615939";
+const VARIANT_ID_90 = "gid://shopify/ProductVariant/42146515648707";
+
+/**
+ * @param {{
+ *   productImage?: {
+ *     url: string;
+ *     altText?: string;
+ *     width?: number;
+ *     height?: number;
+ *   } | null;
+ * }}
+ */
+export default function HeroAndBuyBox({productImage}) {
   const [selectedSize, setSelectedSize] = useState("30");
   const [quantity, setQuantity] = useState(1);
+  const {open} = useAside();
 
   const decrementQuantity = () => {
     if (quantity > 1) setQuantity(quantity - 1);
@@ -35,11 +52,19 @@ export default function HeroAndBuyBox() {
       <div className="flex flex-col lg:flex-row items-start gap-8 mb-16">
         {/* Product Image */}
         <div className="w-full lg:w-[473px] flex justify-center lg:justify-start flex-shrink-0">
-          <img 
-            src="https://api.builder.io/api/v1/image/assets/TEMP/1250ec8db2053fe583e1b891dfcd94333b4ca901?width=946" 
-            alt="ThaenaBiotic Supplement Bottle"
-            className="w-full max-w-[473px] h-auto"
-          />
+          {productImage ? (
+            <Image
+              data={productImage}
+              alt={productImage.altText || "ThaenaBiotic Supplement Bottle"}
+              className="w-full max-w-[473px] h-auto"
+              sizes="(min-width: 1024px) 473px, 100vw"
+              loading="eager"
+            />
+          ) : (
+            <div className="w-full max-w-[473px] h-[473px] bg-neutral-warm flex items-center justify-center">
+              <span className="font-roboto text-slate-dark/50">Product image loading...</span>
+            </div>
+          )}
         </div>
 
         {/* Product Details */}
@@ -144,9 +169,19 @@ export default function HeroAndBuyBox() {
                 </div>
 
                 <div className="space-y-3 pt-6">
-                  <button className="w-full h-14 flex items-center justify-center rounded-xl border-2 border-teal-green bg-teal-green">
+                  <AddToCartButton
+                    lines={[
+                      {
+                        merchandiseId: VARIANT_ID_30,
+                        quantity,
+                      },
+                    ]}
+                    onClick={() => {
+                      open('cart');
+                    }}
+                    className="w-full h-14 flex items-center justify-center rounded-xl border-2 border-teal-green bg-teal-green">
                     <span className="font-roboto-mono text-base font-medium leading-6 text-neutral-light">Add To Cart</span>
-                  </button>
+                  </AddToCartButton>
                   <button className="w-full h-10 flex items-center justify-center rounded-xl">
                     <span className="font-roboto text-xs font-medium leading-4 text-earth-brown">Subscribe & Save 5%</span>
                   </button>
@@ -199,9 +234,19 @@ export default function HeroAndBuyBox() {
                 </div>
 
                 <div className="space-y-3 pt-6">
-                  <button className="w-full h-14 flex items-center justify-center rounded-xl border-2 border-rust-dark bg-transparent">
+                  <AddToCartButton
+                    lines={[
+                      {
+                        merchandiseId: VARIANT_ID_90,
+                        quantity,
+                      },
+                    ]}
+                    onClick={() => {
+                      open('cart');
+                    }}
+                    className="w-full h-14 flex items-center justify-center rounded-xl border-2 border-rust-dark bg-transparent">
                     <span className="font-roboto-mono text-base font-medium leading-6 text-slate-dark">Add To Cart</span>
-                  </button>
+                  </AddToCartButton>
                   <button className="w-full h-10 flex items-center justify-center rounded-xl">
                     <span className="font-roboto text-xs font-medium leading-4 text-[#6B4F2E]">Subscribe & Save 5%</span>
                   </button>

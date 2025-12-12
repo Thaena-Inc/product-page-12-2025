@@ -10,6 +10,9 @@ export default function FinalCTA() {
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat'
     }}
+    onError={() => {
+      console.error('Background image failed to load. Please update the image URL in FinalCTA.jsx');
+    }}
   >
     <div className="max-w-[786px] flex flex-col justify-center items-center gap-6 relative z-10">
       {/* Heading */}

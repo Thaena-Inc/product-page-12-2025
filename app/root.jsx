@@ -14,8 +14,15 @@ import favicon from '~/assets/favicon.svg';
 import {FOOTER_QUERY, HEADER_QUERY} from '~/lib/fragments';
 import resetStyles from '~/styles/reset.css?url';
 import appStyles from '~/styles/app.css?url';
-import tailwindCss from './styles/tailwind.css?url';
+
+// 👇 NEW: side-effect import so Tailwind/PostCSS actually process this file
+import '~/styles/tailwind.css';
+
+// 👇 KEEP: ?url import just for the <link rel="stylesheet" ...> href
+import tailwindCss from '~/styles/tailwind.css?url';
+
 import {PageLayout} from './components/PageLayout';
+
 
 /**
  * This is important to avoid re-fetching root queries on sub-navigations
@@ -57,6 +64,7 @@ export function links() {
       href: 'https://shop.app',
     },
     {rel: 'icon', type: 'image/svg+xml', href: favicon},
+    {rel: 'stylesheet', href: tailwindCss},
   ];
 }
 
@@ -152,7 +160,6 @@ export function Layout({children}) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <link rel="stylesheet" href={tailwindCss}></link>
         <link rel="stylesheet" href={resetStyles}></link>
         <link rel="stylesheet" href={appStyles}></link>
         <Meta />

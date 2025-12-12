@@ -24,8 +24,8 @@ module.exports = {
           // Browns / earth tones
           "earth-brown": "#6D4F2C",     // icons, headings, chips
           sepia: "#a05c3b",             // warm brown accent
-          rust: "#a05c3b",              // pricing / “Best value” card text
-          "rust-dark": "#a05c3b",       // “Best Value” pill & icons
+          rust: "#a05c3b",              // pricing / "Best value" card text
+          "rust-dark": "#a05c3b",       // "Best Value" pill & icons
   
           // Purples / mauves
           mauve: "#925781",             // CHLOE & some CTAs
@@ -34,13 +34,13 @@ module.exports = {
           // Gold / highlights
           golden: "#deb065",            // vertical rules, small accents
         },
+        fontFamily: {
+          playfair: ['"Playfair Display"', 'serif'],
+          roboto: ['Roboto', 'system-ui', 'sans-serif'],
+          cormorant: ['"Cormorant Garamond"', '"Playfair Display"', 'serif'],
+          'roboto-mono': ['"Roboto Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+        },
       },
     },
-    plugins: [],
-    fontFamily: {
-      playfair: ['"Playfair Display"', 'serif'],
-      roboto: ['Roboto', 'system-ui', 'sans-serif'],
-      cormorant: ['"Playfair Display"', 'serif'],
-      'roboto-mono': ['"Roboto Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
-    },    
+    plugins: [],    
   };

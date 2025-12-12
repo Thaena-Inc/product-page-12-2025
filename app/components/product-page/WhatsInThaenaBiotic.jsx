@@ -23,6 +23,10 @@ export default function WhatsInThaenaBiotic() {
                   src="https://api.builder.io/api/v1/image/assets/TEMP/f75cf48b79dc5ec7bbad5dbea65ad7a76f78ef6e?width=1184"
                   alt="Abstract visualization of healthy microbiome metabolites and molecular structures"
                   className="w-full h-auto"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    console.error('Image failed to load. Please update the image URL in WhatsInThaenaBiotic.jsx');
+                  }}
                 />
                 <div className="absolute inset-0 rounded-md shadow-[inset_0_0_0_1px_sage-grey/20]"></div>
               </div>
