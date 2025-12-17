@@ -17,7 +17,7 @@ export default function Index() {
 
   const pricing = {
     "30": { onetime: 199.00, subscribe: 189.05 },
-    "90": { onetime: 497.00, subscribe: 472.15 }
+    "90": { onetime: 499.00, subscribe: 474.05 }
   };
 
   const currentPrice = pricing[selectedSize][purchaseType];
